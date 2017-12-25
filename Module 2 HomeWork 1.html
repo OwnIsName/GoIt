@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		/*
+   Есть три курорта: taba, sharm или hurgada.
+   
+   Необходимо через prompt попросить ввести число, от 1 до 3-х.
+   
+   В тексте prompt необходимо написать какое число соотвествует
+   какому курорту, на ваш выбор.
+   
+   После этого вывести сообщение о том, что пользователь 
+   выбрал такой-то курорт или сообщение о том, что введено
+   число, варианта курорта для которого не было.
+*/
+var taba = "taba";
+	var sharm = "sharm";
+	var hurgada = "hurgada";
+	var resort = prompt("Введите число: \n 1.taba \n 2.sharm \n 3.hurgada ")
+		if (resort == 1) {
+			confirm("Вы выбрали курорт - " + taba);
+		}else if(resort == 2){
+			confirm("Вы выбрали курорт - " + sharm);
+		}else if (resort == 3){
+			confirm("Вы выбрали курорт - " + hurgada);
+		}else{
+			confirm("Вы ввели неправильное число!");
+		}
+	</script>
+	
+</body>
+</html>
