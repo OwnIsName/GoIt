@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+/*
+  Есть массив имен пользователей.
+  Используя методы массива выполнить
+  следующие операции.
+*/
+
+const users = ['Mango', 'Poly', 'Ajax', 'Chelsey'];
+console.log(users);
+// Удалить из начала массива нулевой элемент и вывести в консоль результат.
+users.shift(0)
+console.log(users); // ["Poly", "Ajax", "Chelsey"]
+
+
+// Удалить из конца массив последний элемент и вывести в консоль результат.
+users.pop(0)
+console.log(users); // ["Poly", "Ajax"]
+
+
+
+// Добавить в начало массива любое имя
+users.unshift("Kyiv")
+console.log(users); // ["добавленое имя", "Poly", "Ajax"]
+
+// Добавить в конец массива два любых имени за одну операцию
+users.push("Js", "GoIt");
+console.log(users); //  ["добавленое ранее имя", "Poly", "Ajax", "имя 1", "имя 2"]
+	</script>
+	
+</body>
+</html>

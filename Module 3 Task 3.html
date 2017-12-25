@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+/*
+  Есть строка, используя методы строки
+  преобразовать ее в массив.
+  Вывести в консоль длину массива.
+  Используя цикл, перебрать массив
+  и последовательно вывести элементы
+  массива в консоль.
+*/
+
+const string = "qwerty";
+
+
+
+// Составить массив из строки и записать в переменную arr
+;
+console.log(string.split("")); // ["q", "w", "e", "r", "t", "y"]
+
+// Вывести в консоли общую длину массива arr
+console.log(string.length); // 6
+
+// Вывести в консоли все индексы массива arr
+
+for (let i = 0; i < string.length; i++) {
+	console.log(i); // последовательный вывод 0 1 2 3 4 5
+}
+
+// Вывести в консоли все элементы массива arr
+for (let i = 0; i < string.length; i += 1) {
+	 console.log(string[i]); // последовательный вывод q w e r t y
+}
+
+// Вывести в консоли пары индекс:значение
+for (let i = 0; i < string.length; i += 1) {
+  console.log(i + ": " + string[i]); // последовательный вывод 0:q 1:w 2:e 3:r 4:t 5:y
+}
+	</script>
+	
+</body>
+</html>
