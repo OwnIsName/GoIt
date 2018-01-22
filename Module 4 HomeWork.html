@@ -8,9 +8,7 @@
 	<script type="text/javascript">
 
 /*Используя логику создания массива клавиатурных строк, создать функцию addKeyboardLayout(alphabet) которая на входе получает строку-алфавит и возвращает массив-массивов клавиатурных строк.
-
 Создать функцию getRandCharInRow(row) которая получает номер строки клавиатуры и возвращает случайную букву из этой строки.
-
 Создать функцию getRandCharInAlph() которая возвращает случайную букву из всего алфавита.*/
 
 	const alphabet = "qwertyuiop[]asdfghjkl;'zxcvbnm,./";
@@ -24,22 +22,16 @@
 		addKeyboardLayout(alphabet);
 		
 
-		function getRandCharInRow(row){
-			var rand; 
-			if (row === 1) {
-				rand = Math.floor(Math.random() * keyboard[0].length);
-				return keyboard[0][rand];
-			}else if(row === 2){
-				rand = Math.floor(Math.random() * keyboard[1].length);
-				return keyboard[1][rand];
-			}else if(row === 3){
-				rand = Math.floor(Math.random() * keyboard[2].length);
-				return keyboard[2][rand];
+		function getRandCharInRow(row) {
+			if (row > 0 && row < 4) {
+				var rand = Math.floor(Math.random() * keyboard[row - 1].length);
+				return keyboard[row - 1][rand];
 			}else{
 				return console.log("Input correct string number!");
 			}
-
 		}
+
+		console.log(getRandCharInRow(4));
 		
 		function getRandCharInAlph(){
 			var rand = Math.floor(Math.random() * keyboard.length);
