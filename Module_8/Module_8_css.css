@@ -1,0 +1,68 @@
+.container{
+	width: 100%;
+	height: 300px;
+	/*background-color: #B8A6D5;*/
+	text-align: center;
+	margin-top: 100px;
+
+}
+.box{
+	width: 1000px;
+	height: 90px;
+	/*background-color: #A38637;
+	border-style: solid;
+	border-color: #293000;*/
+	margin-left: 60px;
+
+	
+}
+
+.butt{
+	width: 60px;
+	height: 60px;
+	background-color: #A38637;
+	border-style: solid;
+	border-color: #170C27;
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+	margin-left: 5px;
+	margin-right: 5px;
+	border-radius: 100px;
+	margin-top: 5px;
+	font-weight: bold;
+	font-size: xx-large;
+
+}
+#start{
+	width: 150px;
+	height: 60px;
+	background: #FF7373;
+	border-style: solid;
+	border-color: #170C27;
+	border-radius: 300px;
+	text-align: center;
+	vertical-align: middle;
+	margin-right: 50%;
+	margin-bottom: 50px;
+	font-weight: bold;
+	font-size: xx-large;
+
+}
+
+.keyboard__btn--active{
+	width: 60px;
+	height: 60px;
+	background-color: red;
+	border-style: solid;
+	border-color: #170C27;
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+	margin-left: 5px;
+	margin-right: 5px;
+	border-radius: 100px;
+	margin-top: 5px;
+	font-weight: bold;
+	font-size: xx-large;
+}
