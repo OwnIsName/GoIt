@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		/*  
+  Напишите код, который последовательно: 
+ - добавляет поле mood со значением'happy'
+ - заменяет значение hobby на 'javascript'
+ - удаляет свойство premium
+ - выводит содержимое объекта user 
+    циклом в формате ключ: значение
+*/
+
+const user = {
+  name: 'Mango',
+  age:  20,
+  hobby: 'html',
+  premium: true
+};
+
+function a(obj){
+	obj.mood = "happy";
+	obj.hobby = 'javascript';
+	delete(obj.premium);
+	for(elem in obj){
+		console.log(`${elem} : ${obj[elem]} `)
+	}
+}
+
+	a(user);
+</script>
+
+	
+</body>
+</html>

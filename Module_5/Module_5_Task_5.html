@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="date">
+		
+	</div>
+
+	<script type="text/javascript">
+/*  
+    Написать функцию, которая бы выводила в консоль
+    время, оставшееся до следующего Нового Года
+    в Украинской локали
+*/
+
+
+
+var outer = document.querySelector(".date")
+
+
+
+
+
+function timeToNewYear(){
+const today = new Date(); // Получаем текущую дату
+const nextYear = today.getFullYear() + 1;
+var endYear = new Date(nextYear, 11, 31, 23, 59, 59, 999); // Устанавливаем месяц и день на конец года
+var month = endYear.getMonth() - today.getMonth();
+var day = endYear.getDate() - today.getDate();
+var hour = endYear.getHours() - today.getHours();
+var minutes = endYear.getMinutes() - today.getMinutes();
+var seconds = endYear.getSeconds() - today.getSeconds();
+var timeToNY = `To New Year 2019 left - ${month} month ${day} days ${hour} hours ${minutes} minutes ${seconds} seconds`;
+outer.innerHTML = timeToNY;
+}
+
+setInterval(timeToNewYear, 1000)
+
+
+</script>
+
+	
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		/*  
+  Напишите код, который бы  с помощью функции-конструкора 
+  (CF - Constructor Function) User позволял создавать 
+  объекты пользователя со следующим свойствами:
+ - тип - 'user'
+ - имя - параметр CF
+ - age - параметр CF
+ - friends - число, параметр CF
+
+  Написать функцию getUserInfo, которая на основании одного 
+  параметра - имени объекта, выводит строку:
+  `User ${имя} is ${возраст} years old and has ${кол-во друщзей} friends`
+
+  Создать один объект пользователя User и 
+  с помощью функции getUserInfo вывести строку в консоль.
+*/
+function User(name, age, friends){
+	this.type = "user";
+	this.name = name;
+	this.age = age;
+	this.friends = friends;
+}
+
+var user_1 = new User("Sergei", 28, 600);
+
+function getUserInfo(obj){
+	console.log(`User ${obj.name} is ${obj.age} years old and has ${obj.friens} friends`);
+}
+
+getUserInfo(user_1);
+</script>
+
+	
+</body>
+</html>

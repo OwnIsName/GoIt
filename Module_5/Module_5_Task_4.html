@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+/*  
+  Дополните код так, чтобы скрипт последовательно выводил в консоль
+  строку пары ключ:значение объекта poly. 
+  Поле с датой вывести в Украинской локали.
+  
+  - Реализуйте перебор ключей обьекта используя for in в функции showUserInfoA
+  - Реализуйте перебор ключей обьекта НЕ используя for in в функции showUserInfoB
+*/
+
+function User(login, pass) {
+  this.login = login;
+  this.pass = pass;
+  this.regDate = new Date();
+}
+
+const poly = new User("Poly", "12345qwerty");
+
+function showUserInfoA(obj) {
+  console.log("===== With for in =====");
+  // дополняем код после этого комментария
+  for(key in obj){
+  	console.log(`${key} : ${obj[key]}`)
+  }
+}
+
+showUserInfoA(poly);
+
+function showUserInfoB(obj) {
+  console.log("===== Without for in =====");
+  var arrKey = Object.keys(obj)
+  for(var i = 0; i < arrKey.length; i++){
+   	var objValue = arrKey[i];
+  	console.log(`${arrKey[i]} : ${obj[objValue]}`)
+  }
+}
+
+showUserInfoB(poly);
+
+
+</script>
+
+	
+</body>
+</html>
