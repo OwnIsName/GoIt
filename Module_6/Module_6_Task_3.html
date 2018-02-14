@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="date">
+		
+	</div>
+
+	<script type="text/javascript">
+/*  
+  Расставьте отсутствующие .call 
+*/
+//1-ST PART
+const getBreakpoints = function() {								
+  return `Sunrise: ${this.sunrise} Sunset: ${this.sunset}`;
+};
+
+
+function Day(sunrise, sunset) { // KONSTRUKTOR
+  this.sunrise = sunrise;
+  this.sunset = sunset;
+}
+
+const today = new Day("6:15", "20:45"); //OBJECT-1
+
+// .call
+console.log(getBreakpoints.call(today)); // "Sunrise: 6:15  Sunset: 20:45"
+
+
+//2-ND PART
+const getLength = function() {							//Function which return time legth of day
+    const toMinutes = str => {
+    const tmp = str.split(":");
+    return Math.trunc(+tmp[0]) * 60 + +tmp[1];
+  };
+
+  const minutesToString = minutes => {
+    return `${Math.trunc(minutes / 60)}:${minutes % 60}`;
+  };
+
+  return `Length of day: ${minutesToString(
+    toMinutes(this.sunset) - toMinutes(this.sunrise)
+  )}`;
+};
+
+function DaysLongitude(sunrise, sunset) {		// KONSTRUKTOR
+  this.sunrise = sunrise;
+  this.sunset = sunset;
+}
+
+const todaySunsDay = new DaysLongitude("6:15", "20:45"); //OBJECT-2
+
+// call.
+console.log(getLength.call(todaySunsDay)); // "Length of day: 14:30"
+
+
+
+</script>
+
+	
+</body>
+</html>

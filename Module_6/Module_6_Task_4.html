@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="date">
+		
+	</div>
+
+	<script type="text/javascript">
+/*  
+  На основе предложенной функции сделайте 
+  IIFE функцию с передачей аргументов ('5:15','20:45')
+*/
+
+function getLengthOfDay(sunrise, sunset) {
+  
+  const minutesToString = (minutes) => 
+    `${Math.trunc(minutes / 60)}:${minutes % 60}`;
+  
+  const toMinutes = (str) => {
+    const tmp = str.split(':');
+    return Math.trunc(+tmp[0]) * 60 + +tmp[1];
+  };
+  
+  return minutesToString(toMinutes(sunset) - toMinutes(sunrise));
+};
+
+
+const result = getLengthOfDay('5:15','20:45');
+console.log(result); // "15:30"
+
+
+</script>
+
+	
+</body>
+</html>
