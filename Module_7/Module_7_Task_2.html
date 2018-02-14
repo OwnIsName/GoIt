@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="users">
+		
+	</div>
+
+	<script type="text/javascript">
+/*  
+Модифицировать createUserCard() так чтобы она использовала не createElement, 
+а возвращала строку с тегами, которую потом можно будет поставить в документ 
+через innerHTML или insertAdjacentHTML.
+*/
+var outer = document.querySelector(".users")
+
+function createUserCard(place){
+	var userCard = '<div><img class="cls" src="task-1.png"></div>';
+	return place.innerHTML = userCard;
+}
+
+createUserCard(outer);
+
+
+
+</script>
+
+	
+</body>
+</html>

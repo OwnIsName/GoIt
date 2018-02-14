@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="users" style="width: 1400px; height: 800px; background-color: green">
+
+
+		
+	</div>
+	<ul><li></li></ul>
+
+	<script type="text/javascript">
+/*  
+Модифицировать createUserCard(user) так чтобы она принимала объект с 
+данными для заполнения полей в карточке. Используя createUserCard создать 
+карточки для 3-х разных пользователей и повесить их в документ. 
+Формат обьекта:
+	const user = {
+	  img: 'link/to/user-image',
+	  name: 'Claudia Cardinale',
+	  age: 29,
+	  location: 'Philadelphia, PA',
+	  strawberries: 19,
+	  lemons: 5
+	};
+*/
+const user1 = {
+	  img: 'task-1.png',
+	  name: 'Claudia Cardinale',
+	  age: 29,
+	  location: 'Philadelphia, PA',
+	  strawberries: 19,
+	  lemons: 5
+	};
+
+	const user2 = {
+	  img: 'task-2.png',
+	  name: 'Fergie Duhamel',
+	  age: 42,
+	  location: 'California, USA',
+	  strawberries: 21,
+	  lemons: 7
+	};
+
+	const user3 = {
+	  img: 'task-3.png',
+	  name: 'Madonna Louise Ciccone',
+	  age: 59,
+	  location: 'Lisbon, Portugal',
+	  strawberries: 29,
+	  lemons: 12
+	};
+
+
+
+
+function createUserCard(){
+	var outer = document.querySelector(".users")
+	var iner = document.createElement("div")
+	iner.style.cssFloat = 'left';
+	iner.style.margin = '30px'; 
+	outer.appendChild(iner);
+	
+	iner.innerHTML = `<img class="cls" src="${this.img}"><ul><li>Name: ${this.name}</li><li>Age: ${this.age}</li><li>Location: ${this.location}</li><li>Strawberries: ${this.strawberries}</li><li>Lemons: ${this.lemons}</li></ul>`
+	
+}
+
+createUserCard.call(user1);
+createUserCard.call(user2);
+createUserCard.call(user3);
+
+
+
+</script>
+
+	
+</body>
+</html>

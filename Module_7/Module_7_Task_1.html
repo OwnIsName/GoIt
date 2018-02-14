@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="users">
+		
+	</div>
+
+	<script type="text/javascript">
+/*  
+  Используя createElement, написать функцию createUserCard() 
+  которая динамически создает и возвращает дом узел для такой карточки пользователя. 
+  Классы оформления добавляем через classList.
+*/
+
+function createUserCard(){
+	var outer = document.querySelector(".users")
+	var userCard = document.createElement("img")
+	userCard.classList.add('cls');
+	userCard.setAttribute('src', 'task-1.png');
+	outer.append(userCard);
+}
+createUserCard()
+
+
+
+</script>
+
+	
+</body>
+</html>
