@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="Module_9_Task_3.css" rel="stylesheet">
+	
+</head>
+<body>
+
+<div id="row-container">
+
+	
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+
+ <script type="text/template" id="row-tpl">
+  <div>
+  		<% rowsLine.forEach(item => { %>
+
+			<% rows[item].forEach(button => { %>
+        	<button><%- button %></button>
+       		<% }); 
+         }); %>
+	</div>
+    
+  </script>
+    
+  
+
+
+<script type="text/javascript" src="Module_9_Task_3.js"></script>	
+</body>
+</html>

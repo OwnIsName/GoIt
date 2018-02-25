@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="Module_9_Home_Work.css" rel="stylesheet">
+	
+</head>
+<body>
+	<div class="slideThree">  
+	  <input type="checkbox" value="None" id="slideThree" name="check" checked />
+	  <label for="slideThree"></label>
+	  <span>Sound</span>
+	</div>
+
+	<div id="row-container">
+
+	
+	</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+
+ <script type="text/template" id="row-tpl">
+  	<% rowsLine.forEach(item => { %>	
+  	<div class = '<%- item %>' >
+		<% rows[item].forEach(function callback(button, index) { %>
+       	<button data-note='<%- notes[index]%>'><%- button %></button>
+   		<%});%>
+	</div>
+	<%});%>
+ </script>
+
+<audio class="sonidos" src="https://goo.gl/T1rxRG" data-note="do"></audio>
+<audio class="sonidos" src="https://goo.gl/KT8FN3" data-note="re"></audio>
+<audio class="sonidos" src="https://goo.gl/1SfsNS" data-note="mi"></audio>
+<audio class="sonidos" src="https://goo.gl/OsOCXe" data-note="fa"></audio>
+<audio class="sonidos" src="https://goo.gl/vukZmv" data-note="sol"></audio>
+<audio class="sonidos" src="https://goo.gl/Bjd9KT" data-note="la"></audio>
+<audio class="sonidos" src="https://goo.gl/MS9HTp" data-note="si"></audio>
+    
+ 
+    
+  
+
+
+<script type="text/javascript" src="Module_9_Home_Work.js"></script>	
+</body>
+</html>
