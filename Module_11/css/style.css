@@ -1,0 +1,49 @@
+body{
+	width: 100%;
+	height: auto;
+	background-color: #998E78;
+}
+
+input{
+	height: 100%;
+	opacity: 0.95;
+}
+.buttons{
+	display: flex;
+
+}
+
+button{
+	height: 100%;
+	opacity: 0.8;
+	border-radius: 10px;
+	
+}
+.dataBaseList{
+	width: 100%;
+	height: auto;
+	
+	font-size: 10px;
+}
+/* .addUser{
+	padding: 20px;
+	width: 100%;
+	height: 50px;
+	background-color: #3ACC86;
+
+}
+.deleteUser{
+	padding: 20px;
+	width: 100%;
+	height: 40px;
+	background-color: #FFA363;
+	
+}
+.updateUser{
+	padding: 20px;
+	width: 100%;
+	height: auto;
+	background-color: #A2FFED;
+} */
+
+
