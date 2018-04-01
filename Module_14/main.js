@@ -27,22 +27,22 @@
                 return false;
             }
         }
-        this.startSession = function() {
-        	this.startCounter++;
-            this.activation = true;
-            this.startTime = this.Sec + (this.mSec / 100);
-            this.timerOn();
-        }
-        this.stopSession = function() {
-            this.stopTime = this.Sec + (this.mSec / 100);
-            this.interval = (this.stopTime - this.startTime).toFixed(2) + " Sec";
-            this.activation = false;
-            console.log("interval is " + this.interval);
-            var newOuterTime = document.createElement('h5');
-            newOuterTime.textContent = `${this.startCounter}. interval = ${this.interval}`;
-            return outerList.appendChild(newOuterTime)
+    }
+    Session.prototype.startSession = function() {
+        this.startCounter++;
+        this.activation = true;
+        this.startTime = this.Sec + (this.mSec / 100);
+        this.timerOn();
+    }
 
-        }
+    Session.prototype.stopSession = function() {
+        this.stopTime = this.Sec + (this.mSec / 100);
+        this.interval = (this.stopTime - this.startTime).toFixed(2) + " Sec";
+        this.activation = false;
+        console.log("interval is " + this.interval);
+        var newOuterTime = document.createElement('h5');
+        newOuterTime.textContent = `${this.startCounter}. interval = ${this.interval}`;
+        return outerList.appendChild(newOuterTime)
     }
     let session = new Session();
     startButton.addEventListener("click", function() {
