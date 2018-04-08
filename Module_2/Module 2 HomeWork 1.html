@@ -5,7 +5,10 @@
 	<title>Document</title>
 </head>
 <body>
-
+<button class = "getResortButton">Get Resort</button>
+<div class="outer">
+	
+</div>
 	<script type="text/javascript">
 		/*
    Есть три курорта: taba, sharm или hurgada.
@@ -19,20 +22,256 @@
    выбрал такой-то курорт или сообщение о том, что введено
    число, варианта курорта для которого не было.
 */
-var taba = "taba";
-	var sharm = "sharm";
-	var hurgada = "hurgada";
-	var resort = prompt("Введите число: \n 1.taba \n 2.sharm \n 3.hurgada ")
-		if (resort == 1) {
-			confirm("Вы выбрали курорт - " + taba);
-		}else if(resort == 2){
-			confirm("Вы выбрали курорт - " + sharm);
-		}else if (resort == 3){
-			confirm("Вы выбрали курорт - " + hurgada);
-		}else{
-			confirm("Вы ввели неправильное число!");
+/*
+  Пользователь через prompt вводит число участников группы. 
+  Необходимо проверить является ли введенные данные целым 
+  положительным числом. Вывести alert в случае ошибочного ввода.
+        
+  Всего имеется три группы sharm, hurgada и taba.
+  В группах ограничено кол-во свободных мест:
+    sharm - 15
+    hurgada - 25
+    taba - 6
+    
+  Если количество мест позволяет, то вывести пользователю 
+  сообщение через confirm что есть место в группе такой-то, 
+  согласен ли пользоваетель быть в этой группе?
+  
+  Если ответ ok, уменьшаем число свободных мест на  число участников группы.
+  Если ответ нет, предлагаем следующую группу со свободными местами.
+  
+  Если мест нигде нет, выводим сообщение alert('Мест нет!')
+*/
+var outer = document.getElementsByClassName("outer");
+var resortButton = document.getElementsByClassName("getResortButton");
+
+
+function Resort (name, numb) {
+	this.name = name;
+	this.freePlaces = numb;
+}
+let taba = new Resort("Taba", 3);
+let sharm = new Resort("Sharm", 6);
+let hurgada = new Resort("Hurgada", 8);
+let currentResort = null;
+let variables = {};
+
+
+//Get resort by prompt curort number
+function getResort (){
+	if (arguments.length === 0) {
+		let result = +prompt(`Введите число: \n 1. ${taba.name} \n 2. ${sharm.name} \n 3. ${	hurgada.name}`)
+		let trueNum = result > 0 && result < 4;
+		if (trueNum){
+			switch(result) {
+			 	case 1:
+			 		currentResort = taba;
+			 		break;
+			 	case 2:
+				 	currentResort = sharm;
+				 	break;
+				case 3:  
+				 	currentResort = hurgada;
+				 	break;				 	
+			  }
+			return checkPlaces(taba, sharm, hurgada);
+
 		}
+		return confirm("Error number!");
+	}
+
+
+}
+
+
+
+
+//Check free place in current resort
+function checkPlaces (taba, sharm, hurgada){
+	
+
+	let result = +prompt("You choose Resort " + currentResort.name + "\nEnter the number of tickets you need!");
+
+	if(typeof result === "number" && result % result === 0){
+		let differencePass = currentResort.freePlaces >= result; 
+		if(differencePass){
+			let reservPlace = confirm(`Would you like to book ${result} tickets for the resort ${currentResort.name}?`)
+			console.log(reservPlace);
+			if(reservPlace){
+			currentResort.freePlaces -= result;
+			return alert(`Thanks for bying tickets on Resort ${currentResort.name}!\non Resort ${currentResort.name} left ${currentResort.freePlaces} tickets :)`);
+			}
+		}
+		for(var i = 0; i < arguments.length; i++){
+			let resortName = arguments[i];
+			if (currentResort.name === resortName.name) 
+				continue;
+			if(resortName.freePlaces > result){
+				let otherResort = confirm('Ooops, we do not have so much free places. \nOn ' + currentResort.name + ' Resort just ' + currentResort.freePlaces + ' places left.\nWe have a free places on Resort ' + resortName.name + '\nDo you want to reserve place on ' + resortName.name + '?');
+				if(otherResort)
+					currentResort = resortName;
+					return checkPlaces();
+			}
+
+			
+		}
+		alert("Sorry, but we do not have so much free tickets!")
+}
+};
+getResort();
+
+
+
+
+/*//Get curort Number
+let getCurortNumber = () => {
+	
+	return +prompt(`Введите число: \n 1. ${taba.name} \n 2. ${sharm.name} \n 3. ${hurgada.name}`)
+};
+
+
+
+//Get resort by curort number
+let ResortOuter = (numb) => {
+	let trueNum = numb > 0 && numb < 4;
+	if (trueNum){
+		switch(numb) {
+		 	case 1:
+		 		currentResort = taba;
+		 		console.log(currentResort);
+		 		return confirm("Вы выбрали курорт - " + taba.name);	// if (x === 'value1')
+			 case 2:
+			 	currentResort = sharm;
+		 		console.log(currentResort)  ;
+		 		return confirm("Вы выбрали курорт - " + sharm.name);
+			 case 3:  
+			 	currentResort = hurgada;
+		 		console.log(currentResort);
+		 		return confirm("Вы выбрали курорт - " + hurgada.name) // if (x === 'value2')
+		  }
+	}
+	return confirm("Вы ввели неправильное число!");
+}
+
+//get number of places
+let getTouristsQuantity = () => {
+	return +prompt("Введите кол-во участников группы")
+};
+
+//Check free place in current resort
+let checkPlaces = (num) =>{
+	if(typeof num === "number" && num % num === 0){
+		if(currentResort.freePlaces >= num)
+			currentResort.freePlaces -= num;
+		return console.log(`On ${currentResort.name} Resort left ${currentResort.freePlaces} places `);
+	}
+	
+}	
+		
+
+*/
+/*//Check free place in current resort
+let checkPlaces = (num) =>{
+	if(typeof num === "number" && num % num === 0){
+		let currentRessort = curorts.resorts[curorts.number];
+		for(var key in currentRessort){
+			
+			console.log(currentRessort[key]) //свободн мест
+			curorts.numberOfPassenger = currentRessort[key];
+			console.log(curorts.numberOfPassenger)
+		}
+		//свободных мест больше или равняется запрошеному кол-ву?
+		let differencePass = curorts.numberOfPassenger >= num 
+		console.log(differencePass)
+
+		if(differencePass)
+
+			var b = curorts.resorts[curorts.number];
+			b = b[key] - num;
+
+			console.log(curorts)
+			return console.log(b)
+
+	}
+};*/
+
+/*ResortOuter(getCurortNumber());
+checkPlaces(getTouristsQuantity());*/
+
+
+/*let curorts ={
+	"number": null,
+	"numberOfPassenger": null,
+	resorts:[
+		{
+		'taba': 6
+		}, 
+		{
+		'sharm': 15
+		}, 
+		{
+		"hurgada": 15
+		}]
+	};
+let freePlace = 0;
+
+//Get curort Number
+let getCurortNumber = () => {
+	return +prompt("Введите число: \n 1. taba \n 2. sharm \n 3. hurgada ")
+};
+
+//Get resort by curort number
+let getResort = (numb) => {
+	let trueNum = numb > 0 && numb < 4;
+	if (trueNum){
+		numb =  numb - 1;
+		let resort = Object.keys(curorts.resorts[numb]);
+		curorts.number = numb;
+		return confirm("Вы выбрали курорт - " + resort);
+				
+		
+	}
+	return confirm("Вы ввели неправильное число!");
+}*/
+
+/*//get tourists number
+let getTouristsQuantity = () => {
+	return +prompt("Введите кол-во участников группы")
+};
+
+//Check free place in current resort
+let checkPlaces = (num) =>{
+	if(typeof num === "number" && num % num === 0){
+		let currentRessort = curorts.resorts[curorts.number];
+		for(var key in currentRessort){
+			
+			console.log(currentRessort[key]) //свободн мест
+			curorts.numberOfPassenger = currentRessort[key];
+			console.log(curorts.numberOfPassenger)
+		}
+		//свободных мест больше или равняется запрошеному кол-ву?
+		let differencePass = curorts.numberOfPassenger >= num 
+		console.log(differencePass)
+
+		if(differencePass)
+
+			var b = curorts.resorts[curorts.number];
+			b = b[key] - num;
+
+			console.log(curorts)
+			return console.log(b)
+
+	}
+};
+
+let start = () => {
+	 getResort(getCurortNumber());
+	 
+	 return checkPlaces(getTouristsQuantity());
+}
+start();*/
 	</script>
+
 	
 </body>
 </html>
