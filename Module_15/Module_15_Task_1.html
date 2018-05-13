@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<script type="text/javascript">
+			/*
+  Создать класс Account с полями login, 
+  email и friendsCount. 
+  
+  Для класса Account, создать метод getAccountInfo(), 
+  который выводит в консоль значения всех полей.
+  
+  Создать несколько экземпляров с разными 
+  значениями свойств, вывести их в консоль.
+*/
+	class Account{
+		constructor(login, email, friendsCount){
+			this.login = login;
+			this.email = email;
+			this.friendsCount = friendsCount
+		}
+		getAccountInfo(){
+			for(let key in this)
+				console.log(key + ": " + this[key])
+			}
+	}
+	let john = new Account('Jhon', "jhon@gmail.com", 230);
+	let ali = new Account('ali', "ali@gmail.com", 235);
+	let ivan = new Account('Ivan', "ivan@gmail.com", 260);
+
+	john.getAccountInfo();
+	ali.getAccountInfo();
+	ivan.getAccountInfo();
+
+
+
+
+	</script>
+</body>
+</html>

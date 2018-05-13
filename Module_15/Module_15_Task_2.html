@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<script type="text/javascript">
+	/*
+  Создайте класс Clock со свойством time и 
+  методом showTime(), которой выводит time в консоли.
+  
+  
+  Добавьте классу Clock статический метод convertTime(ms). 
+  Он получает кол-во миллисекунд и возвращает дату с помощью Date.
+  return new Date(ms)
+  
+  То есть будет возможность вызвать Clock.convertTime(111111) 
+  и получить обратно дату.
+  
+  Создайте класс Timer, наследующий от Clock. 
+  Класс Timer должен иметь сообственное свойство 
+  interval и метод countTime().
+*/
+class Clock{
+	constructor(time){
+		this.time = time;
+	}
+	showTime(){
+		console.log(this);
+		console.log(this.time)
+		console.log(this.time.parse())
+
+		console.log(this.time.__proto__.getDay());
+	}
+	static convertTime(ms){
+
+	}
+}
+
+let time1 = new Clock(new Date);
+time1.showTime();
+
+
+
+
+
+
+
+			/*
+
+  Создать класс Account с полями login, 
+  email и friendsCount. 
+  
+  Для класса Account, создать метод getAccountInfo(), 
+  который выводит в консоль значения всех полей.
+  
+  Создать несколько экземпляров с разными 
+  значениями свойств, вывести их в консоль.
+
+	class Account{
+		constructor(login, email, friendsCount){
+			this.login = login;
+			this.email = email;
+			this.friendsCount = friendsCount
+		}
+		getAccountInfo(){
+			for(let key in this)
+				console.log(key + ": " + this[key])
+			}
+	}
+	let john = new Account('Jhon', "jhon@gmail.com", 230);
+	let ali = new Account('ali', "ali@gmail.com", 235);
+	let ivan = new Account('Ivan', "ivan@gmail.com", 260);
+
+	john.getAccountInfo();
+	ali.getAccountInfo();
+	ivan.getAccountInfo();*/
+
+
+
+
+	</script>
+</body>
+</html>

@@ -25,15 +25,23 @@ var outerdataBaseList = document.querySelector(".dataBaseList")
 //Номер строки с данными про пользователя в БД
 var counter = 0;
 //Функция getUsers - выводит БД на страницу по нажатию на кнопку
+var nextImg = document.createElement("img")
+
 var getUsers = function(){
-	fetch("http://fecore.net.ua/rest/")
+	fetch("http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=3e34c7da83f9851126f4c11c91d181e8&format=json")
 	.then(res => res.json())
 	.then(res => {
-		console.log(res)
-		for(key in res){
-			var link = JSON.stringify(res[key]);
+		var topTracks = res.tracks.track
+		console.log(topTracks)
+		for(key in topTracks){
+			var linkName = JSON.stringify(topTracks[key].name);
+			var linkImage = JSON.stringify(topTracks[key].image[0]['#text']);
+			var linkUrl = JSON.stringify(topTracks[key].url);
+			
 			counter ++; 
-			outerdataBaseList.innerHTML += `<div>${counter}. ${link}</div>`;
+			
+			outerdataBaseList.innerHTML += `<div>${counter}. <a href=${linkUrl}><img src=${linkImage}>
+			 ${linkName}</a></div>`;
 			
 		}
 	})
